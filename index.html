@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Data Types in Excel and Power BI: Interactive Lesson</title>
+<meta name="description" content="An interactive, beginner-friendly lesson on data types in Excel and Power BI and how they affect report accuracy, sorting, usability and performance. Includes demos and quizzes.">
+<meta name="theme-color" content="#5b2bd9">
+<meta property="og:title" content="Data Types in Excel and Power BI">
+<meta property="og:description" content="Interactive lesson with live demos and a quiz after every section.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%235b2bd9'/%3E%3Cpath d='M7 22l7-13 3 3v10zM20 14h4v4h-4zM24 19h3v5h-3z' fill='white'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--ink:#17151f;--muted:#5d5a6b;--soft:#f4f0fe;--line:#e2daf8;--brand:#5b2bd9;--brand-d:#4519b0;--ok:#0f7a4d;--okbg:#e6f6ee;--bad:#b3261e;--badbg:#fdecea;--r:14px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.7;font-size:16.5px;-webkit-text-size-adjust:100%}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:0;z-index:20;background:#5b2bd9;box-shadow:0 2px 10px rgba(40,10,120,.25)}
+nav .wrap{display:flex;align-items:center;gap:8px;padding:8px 16px}
+.links{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1}
+nav a{flex:0 0 auto;color:#fff;text-decoration:none;padding:8px 14px;border-radius:999px;font-size:14.5px;font-weight:500;min-height:42px;display:flex;align-items:center;white-space:nowrap}
+nav a:hover{background:rgba(255,255,255,.14)}
+nav a.on{background:#fff;color:var(--brand-d);font-weight:700}
+@media(max-width:640px){nav .wrap{padding:6px}.links{gap:2px;overflow:visible}nav a{flex:1 1 0;justify-content:center;text-align:center;padding:6px 2px;font-size:13px;line-height:1.2;min-height:48px;white-space:normal;border-radius:10px}}
+.score{position:fixed;z-index:25;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));font-size:14px;font-weight:700;color:#fff;background:var(--brand-d);border-radius:999px;padding:8px 16px;box-shadow:0 4px 14px rgba(40,10,120,.35);white-space:nowrap}
+#bar{height:3px;background:#fff;width:0;transition:width .15s}
+.hero{background:linear-gradient(180deg,var(--soft),#fff);padding:46px 0 30px}
+.hero h1{font-size:clamp(30px,6vw,46px);line-height:1.2;margin:0 0 14px;color:var(--brand-d);letter-spacing:-.02em}
+.hero p.lead{font-size:18px;color:var(--muted);max-width:40em;margin:0 0 20px}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px;padding:0;list-style:none}
+.facts li{background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px 14px;font-size:14px;font-weight:500}
+.btn{display:inline-flex;align-items:center;background:var(--brand);color:#fff;border-radius:12px;padding:12px 24px;text-decoration:none;font-weight:600;min-height:48px}
+.btn:hover{background:var(--brand-d)}
+.learn{display:grid;gap:10px;margin-top:26px}
+@media(min-width:700px){.learn{grid-template-columns:repeat(3,1fr)}}
+.learn div{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:12px 16px;font-size:15px}
+.learn b{display:block;color:var(--brand)}
+section{padding:42px 0;border-bottom:1px solid var(--line)}
+h2{font-size:clamp(23px,4.5vw,30px);margin:0 0 6px;line-height:1.3;color:var(--brand-d);letter-spacing:-.01em}
+.sub{color:var(--muted);margin:0 0 18px}
+h3{font-size:18px;margin:26px 0 8px}
+p{margin:0 0 12px}
+.callout{background:var(--soft);border-left:4px solid var(--brand);padding:12px 16px;border-radius:0 10px 10px 0;margin:16px 0}
+.callout.warn{border-color:#d97706;background:#fff7e8}
+.grid{display:grid;gap:12px;margin:14px 0}
+@media(min-width:640px){.grid.c2{grid-template-columns:1fr 1fr}.grid.c4{grid-template-columns:repeat(4,1fr)}}
+.card{border:1.5px solid var(--line);border-radius:var(--r);padding:14px 16px;background:#fff}
+.card h4{margin:0 0 6px;font-size:16.5px;color:var(--brand)}
+.card p{margin:0;font-size:15px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+button{font:inherit;cursor:pointer;border:0;min-height:44px}
+.chip{background:#fff;border:1.5px solid var(--line);color:var(--ink);border-radius:12px;padding:8px 16px;font-weight:500}
+.chip:hover{border-color:var(--brand)}
+.chip.on{background:var(--brand);border-color:var(--brand);color:#fff;font-weight:600}
+.panel{background:#fff;border:1.5px solid var(--line);border-radius:var(--r);padding:18px 20px}
+.panel .t{font-size:20px;font-weight:700;color:var(--brand-d)}
+.ex{display:inline-block;background:var(--soft);border-radius:8px;padding:1px 12px;margin:6px 0 10px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:15px;font-weight:600}
+.kv{display:grid;gap:2px 14px;margin:0}
+@media(min-width:640px){.kv{grid-template-columns:150px 1fr}}
+.kv dt{font-weight:600;color:var(--muted);font-size:14.5px;margin-top:8px}
+.kv dd{margin:0}
+.demo{border:1.5px solid var(--line);border-radius:var(--r);padding:16px;background:#fff}
+.demo h4{margin:0 0 10px;font-size:16.5px}
+.sw{display:flex;gap:6px;margin-bottom:12px}
+.sw button{flex:1;border-radius:10px;border:1.5px solid var(--line);background:#fff;font-weight:500;padding:6px 8px}
+.sw button.on{background:var(--brand);color:#fff;border-color:var(--brand);font-weight:600}
+.scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{border:1px solid var(--line);padding:8px 12px;text-align:left;vertical-align:top}
+th{background:var(--soft);font-weight:600}
+.res{margin-top:12px;padding:10px 14px;border-radius:10px;font-weight:600;font-size:15px}
+.res.good{background:var(--okbg);color:var(--ok)}.res.bad{background:var(--badbg);color:var(--bad)}
+.quiz{margin-top:26px;background:var(--soft);border-radius:16px;padding:18px 20px}
+.quiz h3{margin:0 0 12px;color:var(--brand-d);font-size:17px}
+.qq{margin-bottom:16px}.qq:last-child{margin-bottom:0}
+.qq p{font-weight:600;margin-bottom:4px}
+.qq button{display:block;width:100%;text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:10px 14px;margin-top:6px}
+.qq button:hover{border-color:var(--brand)}
+.qq button.right{border-color:var(--ok);background:var(--okbg);color:var(--ok);font-weight:600}
+.qq button.wrong{border-color:var(--bad);background:var(--badbg);color:var(--bad)}
+.fb{font-size:14.5px;color:var(--muted);margin-top:6px;min-height:1.4em}
+.ck{list-style:none;padding:0;margin:12px 0}
+.ck label{display:flex;gap:12px;align-items:flex-start;padding:10px 14px;border:1.5px solid var(--line);border-radius:12px;margin-bottom:8px;cursor:pointer;background:#fff}
+.ck input{width:22px;height:22px;margin-top:3px;accent-color:var(--brand);flex:0 0 auto}
+.ck label.done{background:var(--okbg);border-color:var(--ok)}
+#ckc{font-weight:600;color:var(--brand)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #f59e0b;outline-offset:2px}
+footer{background:#5b2bd9;padding:30px 20px calc(80px + env(safe-area-inset-bottom,0px));text-align:center;color:#fff;font-size:14px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}#bar{transition:none}}
+</style>
+</head>
+<body>
+<nav aria-label="Lesson sections">
+<div class="wrap"><div class="links">
+<a href="#s1">Basics</a><a href="#s2">Excel</a><a href="#s3">Power BI</a><a href="#s4">Quality</a><a href="#s5">Checklist</a>
+</div><div class="score" id="score" aria-live="polite">Quiz 0/11</div></div>
+<div id="bar"></div>
+</nav>
+
+<header class="hero"><div class="wrap">
+<h1>Data Types in Excel and Power BI</h1>
+<p class="lead">Every column has a type, and that type decides what you can calculate, how it sorts, and how trustworthy your report is. Learn the types, try live demos, and test yourself after each section.</p>
+<ul class="facts"><li>Level: Beginner</li><li>About 20 minutes</li><li>4 live demos</li><li>11 quiz questions</li></ul>
+<a class="btn" href="#s1">Start the lesson</a>
+<div class="learn">
+<div><b>Understand</b>What data types are and why they matter.</div>
+<div><b>Compare</b>How Excel and Power BI store numbers, text and dates.</div>
+<div><b>Improve</b>Fix type problems before they reach a report.</div>
+</div>
+</div></header>
+
+<main class="wrap">
+
+<section id="s1">
+<h2>1. What is a data type?</h2>
+<p class="sub">The identity of a value inside a cell or column.</p>
+<p>A data type tells the software how to interpret a value: as a quantity, a label, a moment in time, or a yes/no flag. That interpretation controls which operations are allowed, how values are sorted and filtered, and how much memory they use.</p>
+<div class="grid c4">
+<div class="card"><h4>Number</h4><p>Can be summed, averaged, ranked and plotted on an axis.</p></div>
+<div class="card"><h4>Text</h4><p>Can be counted, grouped and searched. Never summed.</p></div>
+<div class="card"><h4>Date / time</h4><p>Sorts in time order and splits into year, quarter, month.</p></div>
+<div class="card"><h4>True / False</h4><p>Drives conditions, flags and quick filters.</p></div>
+</div>
+<h3>What each type allows</h3>
+<div class="scroll"><table>
+<tr><th>Operation</th><th>Number</th><th>Text</th><th>Date</th><th>True/False</th></tr>
+<tr><td>Sum / average</td><td>Yes</td><td>No</td><td>No</td><td>No</td></tr>
+<tr><td>Count</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>Sort order</td><td>Numeric</td><td>Alphabetical</td><td>Chronological</td><td>False then True</td></tr>
+<tr><td>Date difference</td><td>No</td><td>No</td><td>Yes</td><td>No</td></tr>
+<tr><td>Slicer style</td><td>Range</td><td>List</td><td>Timeline</td><td>Toggle</td></tr>
+</table></div>
+<div class="callout"><strong>Golden rule:</strong> choose the type by what you will <em>do</em> with the column, not by how it looks. A phone number looks like a number, but you will never add two phone numbers together.</div>
+<div class="quiz" data-q="q1"><h3>Check your understanding</h3></div>
+</section>
+
+<section id="s2">
+<h2>2. Data types in Excel</h2>
+<p class="sub">Select a type to see how it is stored, how it behaves and what to watch out for.</p>
+<div class="chips" id="xc" role="tablist" aria-label="Excel data types"></div>
+<div class="panel" id="xp" aria-live="polite"></div>
+<h3>Format versus type</h3>
+<p>In Excel, <strong>Format Cells</strong> changes how a value is <em>displayed</em>, not what it <em>is</em>. A cell showing 15% still holds 0.15, and a cell formatted as Text can still hold something that looks like a number. When a calculation looks wrong, check the underlying value in the formula bar.</p>
+<h3>Useful functions for fixing types</h3>
+<div class="scroll"><table>
+<tr><th>Function</th><th>Use it to</th></tr>
+<tr><td><code>ISNUMBER(A2)</code></td><td>Test whether a cell is a real number.</td></tr>
+<tr><td><code>VALUE(A2)</code></td><td>Convert number-like text into a number.</td></tr>
+<tr><td><code>DATEVALUE(A2)</code></td><td>Convert text such as “03/01/2025” into a date.</td></tr>
+<tr><td><code>TEXT(A2,"000000")</code></td><td>Display a number as text with leading zeros.</td></tr>
+<tr><td>Data &gt; Text to Columns</td><td>Bulk-convert a whole column of text numbers or dates.</td></tr>
+</table></div>
+<div class="callout warn"><strong>Watch for the green triangle.</strong> It warns that a number is stored as text. Such cells are silently ignored by SUM and AVERAGE.</div>
+<div class="quiz" data-q="q2"><h3>Excel quiz</h3></div>
+</section>
+
+<section id="s3">
+<h2>3. Data types in Power BI</h2>
+<p class="sub">Power BI is stricter than Excel: every column has exactly one type, and the type drives the whole model.</p>
+<div class="chips" id="pc" role="tablist" aria-label="Power BI data types"></div>
+<div class="panel" id="pp" aria-live="polite"></div>
+<h3>Where to set the type</h3>
+<div class="grid c2">
+<div class="card"><h4>Power Query (recommended)</h4><p>Home &gt; Transform data, select the column, then Transform &gt; Data type. The change is recorded as a step and re-applied on every refresh.</p></div>
+<div class="card"><h4>Report / Model view</h4><p>Select a column, then Column tools &gt; Data type. Also lets you set the Data category (City, Country, URL) and the default Summarization (Sum, Average, Don’t summarize).</p></div>
+</div>
+<div class="callout"><strong>Tip:</strong> if dates import with day and month swapped, use <em>Change Type &gt; Using Locale</em> and pick the locale of the source file.</div>
+<div class="quiz" data-q="q3"><h3>Power BI quiz</h3></div>
+</section>
+
+<section id="s4">
+<h2>4. How types affect report quality</h2>
+<p class="sub">Change the type in each demo and watch what happens to the result.</p>
+<div class="grid c2">
+<div class="demo"><h4>Demo 1: Totals</h4>
+<div class="sw" id="sw1"><button class="on" data-v="n">Number</button><button data-v="t">Text</button></div>
+<table><tr><th>Branch</th><th>Sales</th></tr><tr><td>Riyadh</td><td>250</td></tr><tr><td>Jeddah</td><td>300</td></tr><tr><td>Dammam</td><td>400</td></tr></table>
+<div class="res good" id="r1"></div></div>
+
+<div class="demo"><h4>Demo 2: Date order</h4>
+<div class="sw" id="sw2"><button class="on" data-v="d">Date</button><button data-v="t">Text</button></div>
+<table><tr><th>Order date (as shown in the report)</th></tr><tbody id="dl"></tbody></table>
+<div class="res good" id="r2"></div></div>
+
+<div class="demo"><h4>Demo 3: Leading zeros</h4>
+<div class="sw" id="sw3"><button class="on" data-v="t">Text</button><button data-v="n">Number</button></div>
+<table><tr><th>Source value</th><th>Shown in report</th></tr><tbody id="zl"></tbody></table>
+<div class="res good" id="r3"></div></div>
+
+<div class="demo"><h4>Demo 4: Rounding</h4>
+<div class="sw" id="sw4"><button class="on" data-v="d">Decimal</button><button data-v="w">Whole number</button></div>
+<table><tr><th>Student</th><th>Rating</th></tr><tbody id="gl"></tbody></table>
+<div class="res good" id="r4"></div></div>
+</div>
+
+<h3>Five dimensions of report quality</h3>
+<div class="scroll"><table>
+<tr><th>Dimension</th><th>What goes wrong with a wrong type</th><th>Fix</th></tr>
+<tr><td>Accuracy</td><td>Totals show 0, values are rounded or truncated.</td><td>Set numeric types and review Column quality in Power Query.</td></tr>
+<tr><td>Consistency</td><td>Text dates and numbers sort alphabetically (1, 10, 2).</td><td>Convert to Date or Number before sorting.</td></tr>
+<tr><td>Usability</td><td>Slicers become long lists instead of timelines or range sliders.</td><td>Use true Date and Number columns.</td></tr>
+<tr><td>Performance</td><td>High-cardinality text, full timestamps and decimals inflate model size.</td><td>Prefer whole numbers and fixed decimals; split date from time.</td></tr>
+<tr><td>Trust</td><td>Conversion errors hide inside the data and surface as blanks.</td><td>Handle errors in Power Query and check Column distribution.</td></tr>
+</table></div>
+<div class="quiz" data-q="q4"><h3>Report quality quiz</h3></div>
+</section>
+
+<section id="s5">
+<h2>5. Pre-publish checklist</h2>
+<p class="sub">Tick each item as you verify it in your own file. <span id="ckc">0 of 6 done</span></p>
+<ul class="ck" id="ck"></ul>
+<h3>Quick reference</h3>
+<div class="scroll"><table>
+<tr><th>If the value is…</th><th>Excel</th><th>Power BI</th></tr>
+<tr><td>A count or quantity</td><td>Number</td><td>Whole number</td></tr>
+<tr><td>A price or amount</td><td>Currency / Accounting</td><td>Fixed decimal number</td></tr>
+<tr><td>A ratio or average</td><td>Number / Percentage</td><td>Decimal number</td></tr>
+<tr><td>A date</td><td>Date</td><td>Date</td></tr>
+<tr><td>A name, code or phone number</td><td>Text</td><td>Text</td></tr>
+<tr><td>A yes/no flag</td><td>TRUE / FALSE</td><td>True/False</td></tr>
+</table></div>
+<div class="callout">Correct types give you correct calculations, clean visuals, logical sorting and a lighter model. Make type checking the first step of every cleaning routine.</div>
+<p><a class="btn" href="#s1">Restart the lesson</a></p>
+</section>
+</main>
+<footer>Interactive lesson. Practice on your own files to make it stick.</footer>
+
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+function tabs(cid,pid,list){
+  var c=$(cid),p=$(pid);
+  function show(i){
+    var it=list[i];
+    Array.prototype.forEach.call(c.children,function(b,k){b.classList.toggle("on",k===i);b.setAttribute("aria-selected",k===i)});
+    p.innerHTML='<div class="t">'+it.n+'</div><span class="ex">'+it.ex+'</span><dl class="kv"><dt>How it is stored</dt><dd>'+it.s+'</dd><dt>Behavior</dt><dd>'+it.d+'</dd><dt>Common pitfall</dt><dd>'+it.p+'</dd><dt>Typical use</dt><dd>'+it.u+'</dd></dl>';
+  }
+  list.forEach(function(it,i){var b=document.createElement("button");b.type="button";b.className="chip";b.setAttribute("role","tab");b.textContent=it.n;b.onclick=function(){show(i)};c.appendChild(b)});
+  show(0);
+}
+tabs("xc","xp",[
+{n:"Number",ex:"1250.75",s:"Double-precision value with about 15 significant digits.",d:"Right-aligned by default. Works with SUM, AVERAGE, charts and arithmetic.",p:"Digits beyond the 15th are replaced by zeros, so long IDs and card numbers are corrupted.",u:"Quantities, scores, measurements."},
+{n:"Currency / Accounting",ex:"SAR 1,250.00",s:"The same numeric value; only the display format differs.",d:"Shows a symbol and fixed decimals. Calculations use the full stored value.",p:"Displayed rounding is cosmetic, so visible totals can differ from the sum of visible rows by 0.01.",u:"Prices, revenue, costs."},
+{n:"Percentage",ex:"15%",s:"Stored as a decimal fraction (0.15).",d:"Multiplying by 100 and adding a % sign happens only on display.",p:"Applying the % format to an existing 15 turns it into 1500%.",u:"Growth rates, pass rates, margins."},
+{n:"Date & Time",ex:"03/01/2025",s:"Serial number of days since 1 Jan 1900; time is the fractional part of a day.",d:"Sorts chronologically and supports date arithmetic such as =B2-A2.",p:"Regional settings decide whether 03/01 means 3 January or 1 March. Imported text dates do not sort.",u:"Order dates, deadlines, timestamps."},
+{n:"Text",ex:"00123 / Riyadh",s:"Stored as characters and left-aligned by default.",d:"Supports COUNTA, concatenation and lookups. SUM and AVERAGE ignore it.",p:"Numbers stored as text look right but are skipped in totals.",u:"Names, IDs, phone numbers, postal codes."},
+{n:"Boolean",ex:"TRUE",s:"A logical value, usually produced by a comparison such as =B2&gt;100.",d:"Used in IF, FILTER and conditional formatting.",p:"“TRUE” imported from a CSV may arrive as text and fail in logical tests.",u:"Flags and conditions."}
+]);
+tabs("pc","pp",[
+{n:"Whole number",ex:"1,024",s:"64-bit integer (Int64) with no decimals.",d:"Compresses very well and is ideal for counts and relationship keys.",p:"Converting 4.7 to a whole number rounds it to 5.",u:"Counts, quantities, numeric IDs used as keys."},
+{n:"Decimal number",ex:"3.14159",s:"64-bit floating point (Double).",d:"Handles very large and very small values with fractions.",p:"Floating point can introduce tiny errors, so 0.1 + 0.2 may not equal exactly 0.3.",u:"Averages, ratios, scientific measures."},
+{n:"Fixed decimal",ex:"1,250.7500",s:"Exactly four decimal places, up to 19 significant digits.",d:"Behaves like currency with no floating-point drift.",p:"Values with more than four decimals are rounded.",u:"Prices, costs, financial amounts."},
+{n:"Text",ex:"SA-0042",s:"Unicode string.",d:"Sorts alphabetically, supports grouping and counting, and cannot be summed.",p:"Numbers stored as text sort as 1, 10, 2 and cannot be aggregated.",u:"Names, categories, codes, national IDs."},
+{n:"Date",ex:"2025-01-03",s:"Calendar date without a time part.",d:"With auto date/time on, Power BI builds a Year, Quarter, Month, Day hierarchy and offers a timeline slicer.",p:"Importing with the wrong locale swaps day and month.",u:"Order date, payment date, birth date."},
+{n:"Date/Time",ex:"2025-01-03 14:30",s:"Date plus time, stored to the second.",d:"Needed for timestamps and duration calculations.",p:"Millions of unique timestamps bloat the model. Split into a Date column and a Time column.",u:"Logs, transactions, sensor readings."},
+{n:"True/False",ex:"TRUE",s:"Boolean with two possible values.",d:"Ideal for toggle slicers and quick filters.",p:"Text values like “Yes” and “No” do not behave as booleans.",u:"Is delivered, is active, is paid."}
+]);
+
+function sw(id,fn){var s=$(id);Array.prototype.forEach.call(s.children,function(b){b.onclick=function(){Array.prototype.forEach.call(s.children,function(x){x.classList.toggle("on",x===b)});fn(b.dataset.v)}})}
+function res(id,ok,msg){var r=$(id);r.className="res "+(ok?"good":"bad");r.textContent=msg}
+sw("sw1",function(v){v==="n"?res("r1",1,"Total = 950 and the chart plots values correctly."):res("r1",0,"Total shows 0 or is unavailable. The chart counts rows instead of adding sales.")});
+res("r1",1,"Total = 950 and the chart plots values correctly.");
+
+var dates=[["3 Jan 2025","03/01/2025"],["15 Feb 2025","15/02/2025"],["1 Dec 2025","01/12/2025"]];
+function d2(v){
+  var l=v==="d"?dates:[dates[2],dates[1],dates[0]];
+  $("dl").innerHTML=l.map(function(x){return "<tr><td>"+x[0]+"</td></tr>"}).join("");
+  v==="d"?res("r2",1,"Chronological order: January, February, December."):res("r2",0,"Sorted as text (01/12, 15/02, 03/01), so December appears before January.");
+}
+sw("sw2",d2);d2("d");
+
+var ids=["00123","00456","07890"];
+function d3(v){
+  $("zl").innerHTML=ids.map(function(x){return "<tr><td>"+x+"</td><td>"+(v==="t"?x:String(Number(x)))+"</td></tr>"}).join("");
+  v==="t"?res("r3",1,"Leading zeros are preserved, so IDs match across systems."):res("r3",0,"Leading zeros are lost, so 00123 becomes 123 and joins to other tables fail.");
+}
+sw("sw3",d3);d3("t");
+
+var gr=[["Student A",4.5],["Student B",3.5],["Student C",4.2]];
+function d4(v){
+  $("gl").innerHTML=gr.map(function(x){return "<tr><td>"+x[0]+"</td><td>"+(v==="d"?x[1].toFixed(1):Math.round(x[1]))+"</td></tr>"}).join("");
+  var avg=gr.reduce(function(a,b){return a+b[1]},0)/gr.length;
+  var avgW=gr.reduce(function(a,b){return a+Math.round(b[1])},0)/gr.length;
+  v==="d"?res("r4",1,"Average rating = "+avg.toFixed(2)+". Fractions are kept."):res("r4",0,"Values are rounded first, so the average becomes "+avgW.toFixed(2)+" instead of "+avg.toFixed(2)+".");
+}
+sw("sw4",d4);d4("d");
+
+var Q={
+q1:[{q:"Why does the data type of a column matter?",o:["It decides which operations and sort orders are possible","It changes the colors of a report","It reduces the number of rows"],a:0,f:"The type controls aggregation, sorting, filtering and memory use."},
+{q:"Which type fits a customer phone number?",o:["Number","Text","Percentage"],a:1,f:"You never calculate with phone numbers, and a number type would drop the leading zero."}],
+q2:[{q:"What does the green triangle in an Excel cell usually warn about?",o:["The cell is protected","A number is stored as text","The formula is too long"],a:1,f:"Numbers stored as text are ignored by SUM and AVERAGE."},
+{q:"How does Excel store a date internally?",o:["As text","As a serial number of days","As a percentage"],a:1,f:"Dates are serial numbers, which is why you can subtract one from another."},
+{q:"A cell formatted as 15% contains which underlying value?",o:["15","0.15","1500"],a:1,f:"Format changes the display only. The stored value is 0.15."}],
+q3:[{q:"Which type gives you an automatic Year, Quarter, Month, Day hierarchy?",o:["Text","Whole number","Date"],a:2,f:"A true Date column unlocks the date hierarchy and timeline slicer."},
+{q:"Which type is best for prices, avoiding floating-point drift?",o:["Decimal number","Fixed decimal number","Text"],a:1,f:"Fixed decimal keeps exactly four decimal places."},
+{q:"Where is the best place to change a column type so it survives refreshes?",o:["Power Query","A visual’s title","The page background"],a:0,f:"Power Query records the change as a step and re-applies it on every refresh."}],
+q4:[{q:"A Sales column is typed as Text. What happens when you sum it?",o:["It sums normally","It shows 0 or cannot be aggregated","It becomes a date"],a:1,f:"Text cannot be aggregated numerically."},
+{q:"Dates stored as text will be sorted…",o:["Chronologically","Alphabetically","Randomly"],a:1,f:"Text sorts character by character, which breaks time order."},
+{q:"Which change usually reduces Power BI model size?",o:["Splitting a timestamp into Date and Time columns","Converting dates to text","Using Decimal for every number"],a:0,f:"Fewer unique values means better compression."}]
+};
+var total=0,right=0,all=0;
+Object.keys(Q).forEach(function(k){all+=Q[k].length});
+function upd(){$("score").textContent="Quiz "+right+"/"+all}
+upd();
+Array.prototype.forEach.call(document.querySelectorAll(".quiz"),function(box){
+  var items=Q[box.dataset.q];
+  items.forEach(function(it,i){
+    var d=document.createElement("div");d.className="qq";
+    var p=document.createElement("p");p.textContent=(i+1)+". "+it.q;d.appendChild(p);
+    var fb=document.createElement("div");fb.className="fb";
+    var tried=false;
+    it.o.forEach(function(t,j){
+      var b=document.createElement("button");b.type="button";b.textContent=t;
+      b.onclick=function(){
+        if(d.dataset.done)return;
+        if(j===it.a){b.classList.add("right");d.dataset.done=1;if(!tried)right++;fb.textContent="Correct. "+it.f;upd()}
+        else{tried=true;b.classList.add("wrong");fb.textContent="Not quite. Try again."}
+      };
+      d.appendChild(b);
+    });
+    d.appendChild(fb);box.appendChild(d);
+  });
+});
+
+var items=["Numeric columns (amounts, quantities) are typed as numbers, not text.","Date columns use a true Date type and sort chronologically.","IDs, phone numbers and postal codes are text so leading zeros survive.","No placeholder words such as “N/A” are mixed into numeric columns.","Prices use Fixed decimal and counts use Whole number in Power BI.","Column quality in Power Query shows 0% errors before publishing."];
+var ck=$("ck");
+items.forEach(function(t){
+  var li=document.createElement("li"),l=document.createElement("label"),i=document.createElement("input");
+  i.type="checkbox";l.appendChild(i);l.appendChild(document.createTextNode(t));li.appendChild(l);ck.appendChild(li);
+  i.onchange=function(){l.classList.toggle("done",i.checked);var n=ck.querySelectorAll("input:checked").length;$("ckc").textContent=n+" of "+items.length+" done"};
+});
+
+Array.prototype.forEach.call(document.querySelectorAll('a[href^="#"]'),function(a){
+  a.addEventListener("click",function(e){
+    var t=document.getElementById(a.getAttribute("href").slice(1));
+    if(!t)return;
+    e.preventDefault();
+    var y=t.getBoundingClientRect().top+(window.pageYOffset||document.documentElement.scrollTop)-72;
+    window.scrollTo({top:Math.max(0,y),behavior:"smooth"});
+  });
+});
+var links=document.querySelectorAll(".links a"),secs=document.querySelectorAll("section");
+if("IntersectionObserver" in window){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){Array.prototype.forEach.call(links,function(a){a.classList.toggle("on",a.getAttribute("href")==="#"+e.target.id)});}})},{rootMargin:"-25% 0px -65% 0px"});
+  Array.prototype.forEach.call(secs,function(s){io.observe(s)});
+}
+window.addEventListener("scroll",function(){var h=document.documentElement;$("bar").style.width=Math.min(100,h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+"%"},{passive:true});
+})();
+</script>
+</body>
+</html>
